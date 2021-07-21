@@ -1,12 +1,13 @@
 from sqlite3 import connect
+from datetime import datetime
 class Database:
 
     @staticmethod
-    def insert(code,name, family,birthdate, image):
+    def insert(name, text, time):
         try:
-            con = connect("Employee.db")
+            con = connect("MessageDB.db")
             cr = con.cursor()
-            cr.execute(f"INSERT INTO Employee(CodeMelli,Name,Family,BirthDate,Image)VALUES('{code}','{name}','{family}','{birthdate}','{image}')")
+            cr.execute(f"INSERT INTO Message(Name,Text,Time)VALUES('{name}','{text}','{time}')")
             con.commit()
             con.close()
             return True
@@ -14,25 +15,36 @@ class Database:
             return False
 
     @staticmethod
-    def edit(i,code,n, f,b, img):
-        # try:
-        con = connect("Employee.db")
-        cr = con.cursor()
-        cr.execute(f"UPDATE Employee SET CodeMelli='{code}' ,Name='{n}', Family='{f}',BirthDate='{b}',Image='{img}' WHERE Id='{i}'")
-        con.commit()
-        con.close()
-        return True
-        # except:
-        #     return False
+    def delete(id):
+        try:
+            con = connect("MessageDB.db")
+            cr = con.cursor()
+            cr.execute(f'DELETE FROM Message WHERE Message.Id={id}')
+            con.commit()
+            con.close()
+            return True
+        except:
+            return False
 
+    @staticmethod
+    def deleteAll():
+        try:
+            con = connect("MessageDB.db")
+            cr = con.cursor()
+            cr.execute(f'DELETE FROM Message')
+            con.commit()
+            con.close()
+            return True
+        except:
+            return False
 
 
     @staticmethod
     def select():
         try:
-            con=connect("Employee.db")
+            con=connect("MessageDB.db")
             cr=con.cursor()
-            cr.execute("SELECT * FROM Employee")
+            cr.execute("SELECT * FROM Message")
             res=cr.fetchall()
             return res
         except:

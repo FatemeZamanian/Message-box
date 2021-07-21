@@ -24,7 +24,8 @@
     <normaloff>images/icon.png</normaloff>images/icon.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(252, 233, 79);</string>
+   <string notr="true">background-color: rgb(255, 200, 144);
+color: rgb(255, 0, 0);</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -36,6 +37,51 @@
       <number>0</number>
      </property>
      <item row="0" column="0">
+      <widget class="QPushButton" name="btn_dark">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>45</width>
+         <height>45</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-image:url(images/sun.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="btn_Dall">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>45</width>
+         <height>45</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-image:url(images/delall.png);
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
       <widget class="QLabel" name="label">
        <property name="font">
         <font>
@@ -45,10 +91,10 @@
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">color: rgb(255, 111, 67);</string>
        </property>
        <property name="text">
-        <string>employees information</string>
+        <string>Message room</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -98,12 +144,12 @@
         <x>0</x>
         <y>0</y>
         <width>314</width>
-        <height>197</height>
+        <height>184</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
        <item row="1" column="0">
-        <layout class="QGridLayout" name="gl_info">
+        <layout class="QGridLayout" name="gl_message">
          <property name="sizeConstraint">
           <enum>QLayout::SetFixedSize</enum>
          </property>
@@ -116,11 +162,25 @@
    <item>
     <layout class="QHBoxLayout" name="hl_send">
      <item>
-      <widget class="QPushButton" name="btn_Add">
+      <widget class="QLineEdit" name="txt_name">
+       <property name="placeholderText">
+        <string>Enter name</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="txt_text">
+       <property name="placeholderText">
+        <string>write message</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_send">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-         <horstretch>10</horstretch>
-         <verstretch>10</verstretch>
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
         </sizepolicy>
        </property>
        <property name="minimumSize">
@@ -130,10 +190,10 @@
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">background-image:url(images/send_m.png);</string>
        </property>
        <property name="text">
-        <string>Add employee</string>
+        <string/>
        </property>
        <property name="shortcut">
         <string>Return</string>
